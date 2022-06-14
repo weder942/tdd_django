@@ -55,7 +55,7 @@ class NewVisitorTest(unittest.TestCase):
 
 		# A página é atualizada novamente e agora mostra os dois itens em sua lista
 		self.check_for_row_in_list_table('1: Buy peacock feathers')
-		self.check_for_row_in_list_table('2: Buy peacock feathers to make a fly')
+		self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
 		
 		self.fail('Finish the test')
 # Edith se pergunta se o site lembrará de sua lista. Então ela nota 
