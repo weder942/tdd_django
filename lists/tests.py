@@ -1,5 +1,4 @@
 from django.test import TestCase
-<<<<<<< HEAD
 from django.http import HttpRequest
 
 from lists.views import home_page
@@ -7,8 +6,6 @@ from django.http import HttpRequest
 from django.template.loader import render_to_string
 from lists.models import Item
 
-=======
->>>>>>> f7829d2 (Refactor home page view to use a template)
 
 class SmokeTest(TestCase):
 	
