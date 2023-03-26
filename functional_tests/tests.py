@@ -37,12 +37,17 @@ class NewVisitorTest(LiveServerTestCase):
 		self.assertIn('To-Do', self.browser.title)
 		header_text = self.browser.find_element_by_tag_name('h1').text
 		self.assertIn('To-Do', header_text)
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> cb063d4 (make functional_tests an app, use LiveServerTestCase)
 		# Ela é convidada a inserir um item de tarefa imediatamente
 		inputbox = self.browser.find_element_by_id('id_new_item')
 		self.assertEqual(
 			inputbox.get_attribute('placeholder'),
 			'Enter a to-do item'
+<<<<<<< HEAD
 		)		
 		
 		# Ela digita "Buy peacock feathers" (Comprar penas de pavão) em uma
@@ -118,3 +123,40 @@ class NewVisitorTest(LiveServerTestCase):
 		self.assertIn('Buy a milk', page_text)
 		
 		# Satisfeitos, ambos voltam a dormir
+=======
+		)
+
+		# Ela digita "Buy peacock feathers" (Comprar penas de pavão) em uma caixa
+		# de texto (o hobby de Edith é fazer iscas para pesca com fly)
+		inputbox.send_keys('Buy peacock feathers')
+		# Quando ela tecla enter, a página é atualizada, e agora a página lista
+		# "1: Buy peacock feathers" como um item em uma lista de tarefas
+		inputbox.send_keys(Keys.ENTER)
+		time.sleep(1)
+		self.check_for_row_in_list_table('1: Buy peacock feathers')
+
+		# Ainda continua havendo uma caixa de texto convidando-a a acrescentar outro
+		# item. Ela insere "Use peacock feathers to make a fly" (Usar penas de pavão
+		# para fazer um fly - Edith é bem metódica)
+		inputbox = self.browser.find_element_by_id('id_new_item')
+		inputbox.send_keys('Use peacock feathers to make a fly')
+		inputbox.send_keys(Keys.ENTER)
+		time.sleep(1)
+
+		# A página é atualizada novamente e agora mostra os dois itens em sua lista
+		self.check_for_row_in_list_table('1: Buy peacock feathers')
+		self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
+
+		# Edith se pergunta se o site lembrará de sua lista. Então ela nota
+		# que o site gerou um URL único para ela -- há um pequeno
+		# texto explicativo para isso.
+		self.fail('Finish the test')
+
+		# Ela acessa esse URL - sua lista de tarefas continua lá.
+
+		# Satisfeita, ela volta a dormir
+
+
+if __name__ == '__main__':
+	unittest.main(warnings='ignore')
+>>>>>>> cb063d4 (make functional_tests an app, use LiveServerTestCase)
