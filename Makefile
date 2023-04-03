@@ -69,3 +69,6 @@ code-convention:
 # Tests
 test:
 	$(PYTEST) --cov-report=term-missing  --cov-report=html --cov=. --disable-warnings
+
+migrations:
+	python manage.py makemigrations
