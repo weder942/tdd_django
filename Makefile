@@ -2,7 +2,7 @@
 .PHONY: default_target test clean setup create-venv setup-dev migrations test run all
 
 NPROC := `grep -c ^processor /proc/cpuinfo`
-PYTEST := py.test -n$(NPROC)
+PYTEST := py.test # -n$(NPROC)
 
 PIP := pip install -r
 
@@ -69,6 +69,9 @@ code-convention:
 # Tests
 test:
 	$(PYTEST) --cov-report=term-missing  --cov-report=html --cov=. --disable-warnings
+
+functional_test:
+	python manage.py test functional_tests
 
 migrations:
 	python manage.py makemigrations
