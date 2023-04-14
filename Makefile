@@ -68,10 +68,14 @@ code-convention:
 
 # Tests
 test:
-	$(PYTEST) --cov-report=term-missing  --cov-report=html --cov=. --disable-warnings
+	# $(PYTEST) --cov-report=term-missing  --cov-report=html --cov=. --disable-warnings
+	python manage.py test lists
 
 functional_test:
 	python manage.py test functional_tests
 
 migrations:
 	python manage.py makemigrations
+
+migrate-db:
+	python manage.py migrate
