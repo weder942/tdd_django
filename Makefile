@@ -79,3 +79,6 @@ migrations:
 
 migrate-db:
 	python manage.py migrate
+
+collectstatic:
+	python manage.py collectstatic
