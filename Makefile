@@ -74,6 +74,9 @@ test:
 functional_test:
 	python manage.py test functional_tests
 
+functional_test_dev:
+	STAGING_SERVER=dev.precoemsuasmaos.com.br python manage.py test functional_tests
+
 migrations:
 	python manage.py makemigrations
 
