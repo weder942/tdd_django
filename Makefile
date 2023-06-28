@@ -84,4 +84,4 @@ migrate-db:
 	python manage.py migrate
 
 collectstatic:
-	python manage.py collectstatic
+	python manage.py collectstatica
