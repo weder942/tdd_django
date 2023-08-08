@@ -13,7 +13,7 @@ def add_new_item(request, list_, new_list):
         item.full_clean()
         item.save()
         if not new_list:
-            return redirect(f'/lists/{list_.id}/')
+            return redirect(list_)
     except ValidationError:
         error = "You can't have an empty list item"
         if new_list:
@@ -21,7 +21,7 @@ def add_new_item(request, list_, new_list):
             return render(request, 'home.html', {'error': error})
             
     if new_list:
-        return redirect('view_list', list_.id)
+        return redirect(list_)
     
     return render(request, 'list.html', {'list': list_, 'error': error})
 
